@@ -9,4 +9,4 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 usermod -aG docker vagrant
 docker network create wpnet
 docker run --name db -e MYSQL_DATABASE=wordpress -e MYSQL_USER=username -e MYSQL_PASSWORD=password --network wpnet -d rudnykrd/db:latest
-docker run --name wp --link db:dbhost -p 80:80 -p 443:443 --network wpnet -d rudnykrd/wp-https:latest
+docker run --name wp --link db:dbhost -p 443:443 --network wpnet -d rudnykrd/wp-https:latest
